@@ -71,16 +71,26 @@ async function Speak(text) {
     const audio = new Audio(audioUrl);
     audio.play();
 }
-
+ 
+function cleanTextForSpeech(text) {
+  return text
+    .replace(/[*_~`#>-]/g, '')         // Remove *, _, ~, `, etc.
+    .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Convert [text](link) to text
+    .replace(/<\/?[^>]+(>|$)/g, '')     // Strip HTML tags if any
+    .replace(/\s+/g, ' ')               // Normalize spaces
+    .trim();
+}
 
 
 r.onresult = async (event) => {
     const transcript = event.results[0][0].transcript;
     console.log(`You said: ${transcript}`);
+
     const result = await callAPI(transcript);
     const reply = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-    const cleanReply = reply.replace(/\*\*/g, '').replace(/_/g, '');
-    if (cleanReply) {
+
+    if (reply) {
+        const cleanReply = cleanTextForSpeech(reply);
         console.log("Gemini replied:", cleanReply);
         await Speak(cleanReply);
     } else {
