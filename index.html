@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoiceAgent – Chat with Your AI Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #045050;
+            color: #f0f0f0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #00ffd0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            height: 50vh;
+            max-width: 650px;
+            width: 100%;
+            background-color: #043232;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #052f2f;
+            color: #ffffff;
+            border: 1px solid #00ffd0;
+            border-radius: 6px;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        .speak {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #00ffd0, #00a3a3);
+            color: #001010;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+            display: block;
+            width: 100%;
+        }
+
+        .speak:hover {
+            background: linear-gradient(135deg, #00cfcf, #007777);
+            transform: scale(1.02);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎙️AI-VoiceAgent</h1>
+    <div class="container">
+        <div>
+            <label for="systemPrompt">To whom you want to talk:</label>
+            <textarea id="systemPrompt" rows="5"
+                placeholder="Define the character (e.g.. Mentor, AI girlfriend, sarcastic assistant, etc.)"></textarea>
+        </div>
+        <button class="speak">🎤 Mic</button>
+    </div>
+
+    <footer>Made with ❤️ by Bhavik Gupta</footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
