@@ -97,3 +97,6 @@ r.onresult = async (event) => {
         console.error("Could not extract reply from response:", result);
     }
 };
+
+
+//If you Try to use my API keys, the will not work as I disabled them!!
